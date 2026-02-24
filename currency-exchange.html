@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Exchange Pro — Currency Converter</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+</head>
+<body>
+
+<div class="container">
+  <header>
+    <div class="logo">
+      <div class="logo-icon">₿</div>
+      <h1>EXCHANGE PRO</h1>
+    </div>
+    <p class="tagline">Multi-currency converter · Custom rates</p>
+  </header>
+
+  <!-- Main Converter Card -->
+  <div class="card">
+    <div class="converter-row">
+      <div>
+        <div class="field-label">From</div>
+        <div class="currency-select-wrap">
+          <input class="amount-input" id="fromAmount" type="number" value="1" min="0" step="any" placeholder="0">
+          <select class="currency-picker" id="fromCurrency"></select>
+        </div>
+      </div>
+      <div class="swap-col">
+        <button class="swap-btn" onclick="swapCurrencies()" title="Swap">⇄</button>
+      </div>
+      <div>
+        <div class="field-label">To</div>
+        <div class="currency-select-wrap">
+          <input class="amount-input" id="toAmount" type="number" min="0" step="any" placeholder="0" readonly style="opacity:0.85">
+          <select class="currency-picker" id="toCurrency"></select>
+        </div>
+      </div>
+    </div>
+
+    <div class="result-display">
+      <div>
+        <div id="resultText" class="result-main">4,100 KHR</div>
+        <div id="rateText" class="result-rate">1 USD = 4,100 KHR</div>
+      </div>
+      <div style="text-align:right">
+        <div style="font-size:11px; color:var(--muted)">Inverse rate</div>
+        <div id="inverseRate" style="font-size:13px; color:var(--text)">1 KHR = 0.000244 USD</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Custom Rates -->
+  <div class="rate-section">
+    <div class="section-title"><div class="dot"></div> Customize Exchange Rates</div>
+    <div class="section-sub">Override default rates — your custom values are used for all conversions.</div>
+    <div class="rates-grid" id="ratesGrid"></div>
+  </div>
+
+  <!-- Quick amounts -->
+  <div class="quick-section">
+    <div class="section-title"><div class="dot"></div> Quick Amounts</div>
+    <div class="section-sub">Click to set amount quickly</div>
+    <div class="quick-buttons" id="quickBtns"></div>
+  </div>
+
+  <!-- Conversion Table -->
+  <div class="table-section">
+    <div class="table-header">
+      <span>⊞</span>
+      All Currency Conversions
+      <span id="fromSymbolBadge" class="ticker">USD</span>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>Flag</th>
+          <th>Currency</th>
+          <th>Code</th>
+          <th>Rate (per 1 base)</th>
+          <th>Converted</th>
+        </tr>
+      </thead>
+      <tbody id="conversionTable"></tbody>
+    </table>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-content">
+    <div>© 2026 Exchange Pro. All rights reserved.</div>
+    <div class="footer-links" style="text-decoration: none;">
+   
+      <a href="https://www.youtube.com/channel/UCjPPgUUKWG6Y4zAOoHd0ezw"> <i class="fab fa-youtube"></i> Youtube</a>
+      <a href="https://t.me/MYG_CODING"> <i class="fab fa-telegram"></i>Telegram</a>
+      <a href="https://github.com/SereyMeyling?tab=repositories"> <i class="fab fa-github"></i> Github</a>
+    </div>
+   
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
